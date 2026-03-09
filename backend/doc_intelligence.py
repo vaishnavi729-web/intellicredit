@@ -3,12 +3,46 @@ import random
 
 def extract_financials(filenames):
     """
-    Simulates OCR & LLM Extraction from PnL, Balance Sheets, GST, etc.
-    Now includes GST vs Bank Cross-Verification.
+    Simulates OCR & LLM Extraction from multiple document types:
+    - PDF (Annual Reports, Financials)
+    - Excel (PnL, Balance Sheets, Schedules)
+    - Word (Director Reports, Auditor Notes)
+    - Images (Scanned copies, Collateral photos)
     """
-    has_gst = any("gst" in f.lower() for f in filenames) or len(filenames) > 0
+    if not filenames:
+        return {"error": "No files provided for extraction"}
+
+    # Define supported extensions
+    SUPPORTED_EXTENSIONS = {
+        'pdf': 'Portable Document Format',
+        'xlsx': 'Excel Spreadsheet',
+        'xls': 'Legacy Excel Spreadsheet',
+        'docx': 'Word Document',
+        'doc': 'Legacy Word Document',
+        'jpg': 'Image/Scan',
+        'jpeg': 'Image/Scan',
+        'png': 'Image/Scan',
+        'csv': 'CSV Data'
+    }
+
+    processed_files = []
+    has_gst = False
     
-    # Financial metrics
+    for f in filenames:
+        ext = f.split('.')[-1].lower() if '.' in f else 'unknown'
+        is_supported = ext in SUPPORTED_EXTENSIONS
+        
+        if "gst" in f.lower() or "gstr" in f.lower():
+            has_gst = True
+            
+        processed_files.append({
+            "filename": f,
+            "type": SUPPORTED_EXTENSIONS.get(ext, "Unknown Format"),
+            "status": "Processed" if is_supported else "Unsupported Format",
+            "extraction_method": "OCR/LLM" if ext == 'pdf' or ext in ['jpg', 'png', 'jpeg'] else "Direct Parser"
+        })
+
+    # Financial metrics generation (simulated)
     extracted = {
         "revenue_3y_avg": round(random.uniform(50, 400), 2),
         "net_profit": round(random.uniform(5, 40), 2),
@@ -39,5 +73,7 @@ def extract_financials(filenames):
        
     return {
         "financials": extracted,
-        "cross_verification": cross_verification
+        "cross_verification": cross_verification,
+        "processed_documents": processed_files,
+        "supported_formats_found": list(set([p["type"] for p in processed_files if p["status"] == "Processed"]))
     }

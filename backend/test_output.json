@@ -1,0 +1,126 @@
+{
+  "mca_intelligence": {
+    "active_status": true,
+    "charges_outstanding": 0,
+    "director_disqualified": false,
+    "strike_off_flag": false,
+    "past_name_changes": 0,
+    "mca_risk_score": 0
+  },
+  "ibc_analysis": {
+    "section_7_flag": false,
+    "section_9_flag": false,
+    "admitted_flag": false,
+    "dismissed_flag": false,
+    "ibc_risk_score": 0,
+    "insolvency_severity": "Low"
+  },
+  "rbi_analysis": {
+    "wilful_defaulter_flag": false,
+    "crilc_default_flag": false,
+    "rbi_risk_score": 0
+  },
+  "rating_analysis": {
+    "rating_downgrade_flag": false,
+    "rating_suspended_flag": false,
+    "default_rating_flag": false,
+    "rating_risk_score": 0
+  },
+  "source_quality_summary": {
+    "credible_sources_found": 5
+  },
+  "nlp_risk_impact_score": 0,
+  "risk_level": "Low",
+  "risk_drivers": [],
+  "news_sentiment_score": 0.0,
+  "sentiment_score": 0.0,
+  "litigation_cases": 0,
+  "litigation_severity": "Low",
+  "litigation_severity_score": 0,
+  "compliance_flags": 0,
+  "compliance_flag_count": 0,
+  "promoter_risk_level": "Stable",
+  "promoter_risk_score": 0,
+  "industry_risk_trend": "Stable",
+  "industry_risk_index": 45,
+  "risk_keywords": [],
+  "summary_insight": "0 litigation cases and 0 compliance notices detected. Overall Risk: Low.",
+  "analyzed_headlines": [
+    "ED searches premises linked to directors of Acme Corp Logistics Ltd. over alleged FEMA violations.",
+    "Recovery suit filed by HDFC Bank against Acme Corp Logistics Ltd. in Mumbai Civil Court.",
+    "Alert: CIN U74999MH2021PTC355000 associated with delayed GST filings for Acme Corp Logistics Ltd..",
+    "Petition for insolvency under IBC Section 7 against Acme Corp Logistics Ltd. admitted by NCLT Mumbai.",
+    "Show cause notice issued to Acme Corp Logistics Ltd. regarding related party disclosure lapses.",
+    "Acme Fireworks shop (Proprietor: Ramesh) caught fire in Pune market.",
+    "Industry-wide regulatory shifts impacting Acme Corp Logistics Ltd. and peers in manufacturing."
+  ],
+  "detailed_analysis": [
+    {
+      "headline": "ED searches premises linked to directors of Acme Corp Logistics Ltd. over alleged FEMA violations.",
+      "source": "Google News",
+      "url": "https://news.google.com/search?q=Acme%20Corp%20Logistics%20Ltd.+fraud+director",
+      "category": "Neutral",
+      "impact": -0.55,
+      "confidence": 18.79,
+      "is_high_confidence": false
+    },
+    {
+      "headline": "Recovery suit filed by HDFC Bank against Acme Corp Logistics Ltd. in Mumbai Civil Court.",
+      "source": "e-Courts",
+      "url": "https://ecourts.gov.in/ecourts_home/static/highcourts/business/case_status.php?search=Acme%20Corp%20Logistics%20Ltd.",
+      "category": "Neutral",
+      "impact": -0.74,
+      "confidence": 32.68,
+      "is_high_confidence": false
+    },
+    {
+      "headline": "Alert: CIN U74999MH2021PTC355000 associated with delayed GST filings for Acme Corp Logistics Ltd..",
+      "source": "MCA Portal",
+      "url": "https://www.mca.gov.in/mcafoportal/viewCompanyMasterData.do",
+      "category": "Neutral",
+      "impact": -0.92,
+      "confidence": 73.22,
+      "is_high_confidence": false
+    },
+    {
+      "headline": "Petition for insolvency under IBC Section 7 against Acme Corp Logistics Ltd. admitted by NCLT Mumbai.",
+      "source": "Indian Kanoon",
+      "url": "https://indiankanoon.org/search/?formInput=Acme%20Corp%20Logistics%20Ltd.+insolvency",
+      "category": "Neutral",
+      "impact": -0.7,
+      "confidence": 31.67,
+      "is_high_confidence": false
+    },
+    {
+      "headline": "Show cause notice issued to Acme Corp Logistics Ltd. regarding related party disclosure lapses.",
+      "source": "SEBI Orders",
+      "url": "https://www.sebi.gov.in/sebiweb/home/HomeAction.do?doListingAll=yes&search=Acme%20Corp%20Logistics%20Ltd.",
+      "category": "Neutral",
+      "impact": -0.63,
+      "confidence": 19.03,
+      "is_high_confidence": false
+    },
+    {
+      "headline": "Acme Fireworks shop (Proprietor: Ramesh) caught fire in Pune market.",
+      "source": "Local Pune Times",
+      "url": "https://news.google.com/search?q=Acme%20Corp%20Logistics%20Ltd.+incident",
+      "category": "Neutral",
+      "impact": -0.31,
+      "confidence": 10.15,
+      "is_high_confidence": false
+    },
+    {
+      "headline": "Industry-wide regulatory shifts impacting Acme Corp Logistics Ltd. and peers in manufacturing.",
+      "source": "Business Standard",
+      "url": "https://www.business-standard.com/search?q=Acme%20Corp%20Logistics%20Ltd.",
+      "category": "Neutral",
+      "impact": -0.95,
+      "confidence": 19.3,
+      "is_high_confidence": false
+    }
+  ],
+  "fraud_flags": 0,
+  "litigation_count": 0,
+  "negative_news_index": 0,
+  "sector_risk_index": 45
+}
