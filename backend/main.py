@@ -77,17 +77,63 @@ async def upload_documents(files: List[UploadFile] = File(...)):
     return {"status": "success", "data": extracted_data}
 
 @app.get("/external_research/{company_name}")
-async def external_research(company_name: str, cin: str = None, promoter_names: str = None):
+async def external_research(company_name: str, cin: str = None, promoter_names: str = None, location: str = None, industry: str = None):
     """Run NLP on news for company sentiment and litigation."""
     p_names = promoter_names.split(",") if promoter_names else []
-    results = fetch_and_analyze(company_name, cin, p_names)
+    results = fetch_and_analyze(company_name, cin, p_names, location, industry)
     return results
 
 @app.post("/calculate_risk")
 async def calculate_risk(features: dict):
-    """Run ML XGBoost/RF Model with SHAP"""
-    result = risk_calculator(features)
-    return result
+    from feature_engineering import extract_features
+    from risk_model import risk_model_instance
+    from explainability import explain_decision
+    
+    if not risk_model_instance.is_trained:
+        train_stats = risk_model_instance.train()
+        print(f"ML Model Trained - Accuracy: {train_stats['accuracy']}, Confusion Matrix: {train_stats['confusion_matrix']}")
+        
+    requested_amount = float(features.get("requested_amount", features.get("amount", 100.0)))
+    
+    # Layer 1: Feature Engineering
+    ml_features = extract_features(features)
+    
+    # Layer 2: ML Model Layer
+    pd_score = risk_model_instance.predict_pd(ml_features)
+    
+    # Layer 3: SHAP Explainability Layer
+    explanation = explain_decision(ml_features, pd_score)
+    
+    # Layer 4: Final Decision Logic
+    if pd_score < 0.25:
+        decision = "Approve"
+        risk_premium = 1.5
+    elif pd_score < 0.50:
+        decision = "Approve with Conditions"
+        risk_premium = 3.0
+    elif pd_score < 0.75:
+        decision = "High Risk - Collateral Required"
+        risk_premium = 5.5
+    else:
+        decision = "Reject"
+        risk_premium = None
+
+    if risk_premium is not None:
+        adjusted_limit = requested_amount * (1 - pd_score)
+        interest_rate = 8.0 + risk_premium # Base market rate assumed 8.0%
+    else:
+        adjusted_limit = 0.0
+        interest_rate = None
+
+    return {
+        "pd_score": explanation["probability_of_default"],
+        "risk_level": explanation["risk_level"],
+        "decision": decision,
+        "recommended_limit": round(adjusted_limit, 2),
+        "interest_rate": interest_rate,
+        "top_risk_drivers": explanation["top_risk_drivers"],
+        "feature_breakdown": explanation["feature_importance"]
+    }
 
 @app.post("/site_visit_update")
 async def site_visit_update(visit: InvestigatorInput):

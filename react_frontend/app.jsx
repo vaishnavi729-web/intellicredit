@@ -265,12 +265,12 @@ const App = () => {
                     </h3>
                     <div className="space-y-4">
                         {[
-                            { id: 'ar', label: '1️⃣ Annual Report (Last 3 Years) – PDF' },
-                            { id: 'fs', label: '2️⃣ Financial Statements (Balance Sheet, P&L) – PDF/Excel' },
-                            { id: 'gstr', label: '3️⃣ GST Returns (GSTR-3B) – Last 12 months' },
-                            { id: 'bank', label: '4️⃣ Bank Statements – Last 12 months' },
-                            { id: 'itr', label: '5️⃣ Income Tax Returns (ITR) – Last 3 years' },
-                            { id: 'col', label: '6️⃣ Collateral Documents (Property Valuation / Asset List)' }
+                            { id: 'ar', label: '1️⃣ Annual Report (Last 3 Years) – PDF / Docx' },
+                            { id: 'fs', label: '2️⃣ Financial Statements (Balance Sheet, P&L) – PDF / Excel / CSV' },
+                            { id: 'gstr', label: '3️⃣ GST Returns (GSTR-3B) – PDF / Excel' },
+                            { id: 'bank', label: '4️⃣ Bank Statements – PDF / Excel' },
+                            { id: 'itr', label: '5️⃣ Income Tax Returns (ITR) – PDF' },
+                            { id: 'col', label: '6️⃣ Collateral Documents – PDF / Word / Images' }
                         ].map(doc => (
                             <div key={doc.id} className="flex justify-between items-center p-3 bg-slate-800/50 border border-slate-700 rounded hover:bg-slate-800 transition">
                                 <span className="font-medium text-slate-300">{doc.label}</span>
