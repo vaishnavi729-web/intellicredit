@@ -198,7 +198,7 @@ source_weights = {
 }
 
 
-def fetch_and_analyze(company_name: str, cin: str = None, promoter_names: list = None, location: str = None, industry: str = None):
+def fetch_and_analyze(company_name: str, cin: str = None, promoter_names: list = None, location: str = None, industry: str = None, bank_name: str = "Lending Institution"):
     """
     High-accuracy multi-source research pipeline with advanced entity matching.
     """
@@ -222,12 +222,12 @@ def fetch_and_analyze(company_name: str, cin: str = None, promoter_names: list =
     # Step 2 & 3: Multi-source record simulation with dynamically generated company-specific URLs
     sources = [
         {"source": "Google News", "headline": f"ED searches premises linked to directors of {company_name} over alleged FEMA violations.", "url": f"https://news.google.com/search?q={company_query}+fraud+director"},
-        {"source": "e-Courts", "headline": f"Recovery suit filed by HDFC Bank against {company_name} in Mumbai Civil Court.", "url": f"https://ecourts.gov.in/ecourts_home/static/highcourts/business/case_status.php?search={company_query}"},
+        {"source": "e-Courts", "headline": f"Recovery suit filed by {bank_name} against {company_name} in Mumbai Civil Court.", "url": f"https://ecourts.gov.in/ecourts_home/static/highcourts/business/case_status.php?search={company_query}"},
         {"source": "MCA Portal", "headline": f"Alert: CIN {cin if cin else 'U74999MH2021PTC355000'} associated with delayed GST filings for {company_name}.", "url": f"https://www.mca.gov.in/mcafoportal/viewCompanyMasterData.do"},
         {"source": "Indian Kanoon", "headline": f"Petition for insolvency under IBC Section 7 against {company_name} admitted by NCLT Mumbai.", "url": f"https://indiankanoon.org/search/?formInput={company_query}+insolvency"},
         {"source": "SEBI Orders", "headline": f"Show cause notice issued to {company_name} regarding related party disclosure lapses.", "url": f"https://www.sebi.gov.in/sebiweb/home/HomeAction.do?doListingAll=yes&search={company_query}"},
-        {"source": "Local Pune Times", "headline": "Acme Fireworks shop (Proprietor: Ramesh) caught fire in Pune market.", "url": f"https://news.google.com/search?q={company_query}+incident"},
-        {"source": "Business Standard", "headline": f"Industry-wide regulatory shifts impacting {company_name} and peers in manufacturing.", "url": f"https://www.business-standard.com/search?q={company_query}"}
+        {"source": "Local Pune Times", "headline": f"{company_name} operations halted briefly due to local safety compliance audit.", "url": f"https://news.google.com/search?q={company_query}+incident"},
+        {"source": "Business Standard", "headline": f"Industry-wide regulatory shifts impacting {company_name} and peers in {industry if industry else 'manufacturing'}.", "url": f"https://www.business-standard.com/search?q={company_query}"}
     ]
 
     sentiment_score = 0.0
