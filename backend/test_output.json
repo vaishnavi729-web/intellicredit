@@ -47,12 +47,12 @@
   "summary_insight": "0 litigation cases and 0 compliance notices detected. Overall Risk: Low.",
   "analyzed_headlines": [
     "ED searches premises linked to directors of Acme Corp Logistics Ltd. over alleged FEMA violations.",
-    "Recovery suit filed by HDFC Bank against Acme Corp Logistics Ltd. in Mumbai Civil Court.",
+    "Recovery suit filed by Lending Institution against Acme Corp Logistics Ltd. in Mumbai Civil Court.",
     "Alert: CIN U74999MH2021PTC355000 associated with delayed GST filings for Acme Corp Logistics Ltd..",
     "Petition for insolvency under IBC Section 7 against Acme Corp Logistics Ltd. admitted by NCLT Mumbai.",
     "Show cause notice issued to Acme Corp Logistics Ltd. regarding related party disclosure lapses.",
-    "Acme Fireworks shop (Proprietor: Ramesh) caught fire in Pune market.",
-    "Industry-wide regulatory shifts impacting Acme Corp Logistics Ltd. and peers in manufacturing."
+    "Acme Corp Logistics Ltd. operations halted briefly due to local safety compliance audit.",
+    "Industry-wide regulatory shifts impacting Acme Corp Logistics Ltd. and peers in Logistics."
   ],
   "detailed_analysis": [
     {
@@ -65,12 +65,12 @@
       "is_high_confidence": false
     },
     {
-      "headline": "Recovery suit filed by HDFC Bank against Acme Corp Logistics Ltd. in Mumbai Civil Court.",
+      "headline": "Recovery suit filed by Lending Institution against Acme Corp Logistics Ltd. in Mumbai Civil Court.",
       "source": "e-Courts",
       "url": "https://ecourts.gov.in/ecourts_home/static/highcourts/business/case_status.php?search=Acme%20Corp%20Logistics%20Ltd.",
       "category": "Neutral",
-      "impact": -0.74,
-      "confidence": 32.68,
+      "impact": -0.75,
+      "confidence": 31.89,
       "is_high_confidence": false
     },
     {
@@ -101,21 +101,21 @@
       "is_high_confidence": false
     },
     {
-      "headline": "Acme Fireworks shop (Proprietor: Ramesh) caught fire in Pune market.",
+      "headline": "Acme Corp Logistics Ltd. operations halted briefly due to local safety compliance audit.",
       "source": "Local Pune Times",
       "url": "https://news.google.com/search?q=Acme%20Corp%20Logistics%20Ltd.+incident",
       "category": "Neutral",
-      "impact": -0.31,
-      "confidence": 10.15,
+      "impact": -0.39,
+      "confidence": 20.19,
       "is_high_confidence": false
     },
     {
-      "headline": "Industry-wide regulatory shifts impacting Acme Corp Logistics Ltd. and peers in manufacturing.",
+      "headline": "Industry-wide regulatory shifts impacting Acme Corp Logistics Ltd. and peers in Logistics.",
       "source": "Business Standard",
       "url": "https://www.business-standard.com/search?q=Acme%20Corp%20Logistics%20Ltd.",
       "category": "Neutral",
       "impact": -0.95,
-      "confidence": 19.3,
+      "confidence": 19.51,
       "is_high_confidence": false
     }
   ],
