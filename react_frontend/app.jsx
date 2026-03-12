@@ -22,7 +22,6 @@ const Sidebar = ({ userRole, activeTab, setActiveTab, onLogout, borrowerView, se
         { id: 'my_applications', label: '📂 My Applications', icon: 'folder' },
         { id: 'documents', label: '📄 Documents', icon: 'files' },
         { id: 'extraction', label: '📂 Document Extraction', icon: 'brain-circuit' },
-        { id: 'ews_research', label: '🌐 EWS & NLP Research', icon: 'globe' },
         { id: 'timeline', label: '⏳ Application Timeline', icon: 'timer' },
         { id: 'profile', label: '👤 Profile', icon: 'user' }
     ];
@@ -1159,7 +1158,6 @@ const App = () => {
             case 'edit_form': return renderEditForm();
             case 'documents': return renderBorrowerDocuments();
             case 'extraction': return renderDocInt();
-            case 'ews_research': return renderNlp();
             case 'timeline': return renderBorrowerTimeline();
             case 'profile': return renderBorrowerProfile();
             default: return renderBorrowerDashboard();
@@ -1184,7 +1182,6 @@ const App = () => {
             case "Borrower Profile": return renderApplicantProfile();
             case "Dashboard": return renderDashboard();
             case "Document Intelligence": return renderDocInt();
-            case "NLP Research": return renderNlp();
             case "Investigator Portal": return renderInvestigator();
             case "Officer Decision": return renderDecision();
             case "CAM Generator": return renderCAM();
@@ -2052,7 +2049,6 @@ const App = () => {
         { id: "Borrower Profile", icon: "user-circle" },
         { id: "Dashboard", icon: "layout-dashboard" },
         { id: "Document Intelligence", icon: "file-text" },
-        { id: "NLP Research", icon: "globe" },
         { id: "Investigator Portal", icon: "map-pin" },
         { id: "Officer Decision", icon: "briefcase" },
         { id: "CAM Generator", icon: "file-signature" }
@@ -2094,7 +2090,6 @@ const App = () => {
                             { id: 'form', label: 'New Application', icon: 'plus-circle' },
                             { id: 'my_applications', label: 'My Applications', icon: 'folder' },
                             { id: 'documents', label: 'Documents', icon: 'files' },
-                            { id: 'ews_research', label: 'EWS & NLP Research', icon: 'globe' },
                             { id: 'timeline', label: 'Timeline', icon: 'timer' },
                             ...(pendingApplications.some(a => a.status === 'Approved') ? [{ id: 'download_cam', label: 'Download CAM', icon: 'file-check' }] : []),
                             { id: 'profile', label: 'Profile', icon: 'user' }
