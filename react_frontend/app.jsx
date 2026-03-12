@@ -391,6 +391,7 @@ const App = () => {
     const [riskData, setRiskData] = useState(DEFAULT_RISK_DATA);
     const [investigatorInputs, setInvestigatorInputs] = useState({ utilization_pct: 75, machinery_condition: 'Good', inventory_status: 'Normal', employee_strength: 150, management_rating: 4, review_summary: '' });
     const [camUrl, setCamUrl] = useState("");
+    const [showHighConfidenceOnly, setShowHighConfidenceOnly] = useState(false);
 
     // Officer Decision State
     const [decision, setDecision] = useState("Approve");
@@ -2093,6 +2094,7 @@ const App = () => {
                             { id: 'form', label: 'New Application', icon: 'plus-circle' },
                             { id: 'my_applications', label: 'My Applications', icon: 'folder' },
                             { id: 'documents', label: 'Documents', icon: 'files' },
+                            { id: 'ews_research', label: 'EWS & NLP Research', icon: 'globe' },
                             { id: 'timeline', label: 'Timeline', icon: 'timer' },
                             ...(pendingApplications.some(a => a.status === 'Approved') ? [{ id: 'download_cam', label: 'Download CAM', icon: 'file-check' }] : []),
                             { id: 'profile', label: 'Profile', icon: 'user' }
